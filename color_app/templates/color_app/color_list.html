@@ -29,13 +29,22 @@
 	</div>
 	<script src="{% static 'color_app/offset_swatches.js' %}"></script>
 
-	<div class="row">
-		<div class="col text-center">
-				<p> 
-					<a href="{% url 'color_app:index' %}">There is no escape</a>.
-				</p>
-		</div>
-	  </div>
+<div class="row">
+	<div class="col text-center">
+			<p> 
+				<a href="{% url 'color_app:index' %}">There is no escape</a>.
+			</p>
+	</div>
+	</div>
+
+	{% for color in object_list %}
+	<a href="{% url 'color=_app:color_detail' color.id %}">
+	<div class="swatch">
+	{% include "color_app/swatch.html" %}
+	</div>  
+	</a>
+{% endfor %}
 	
 {% endblock %}
+
 
